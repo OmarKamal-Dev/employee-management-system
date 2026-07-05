@@ -1,7 +1,6 @@
 import utils
 import session
 import dp
-import json
 
 def add_employee():
     add_more = 'y'
