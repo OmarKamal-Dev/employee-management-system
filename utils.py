@@ -19,7 +19,6 @@ def read_int(msg) -> int:
     return int(number)
     
 def read_int_in_range(fromNum, toNum) -> int :
-    
     number = int(read_int(f"Please Enter Number Between {fromNum} and {toNum}: "))
 
     while(number < fromNum or number > toNum):
@@ -41,7 +40,6 @@ def check_user() -> dict:
             print("User Name Not Found Please Try Again.")    
 
 def check_password(userName):
-    
         password = input("Please Enter Your Password : ")
 
         if password == session.current_session["all_users"][userName]:
