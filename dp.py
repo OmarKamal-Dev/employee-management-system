@@ -34,17 +34,13 @@ def save_employee(employee, fileName = EmployeeDataFile):
 
 
 def update_employees(fileName = EmployeeDataFile):
-    
      with open(fileName, "w") as myFile:
-        
         for emp_name, emp_data in session.current_session["all_employee"].items():
-            
             single_employee = {emp_name: emp_data}
             
             myFile.write(json.dumps(single_employee) + "\n")
 
 def is_employee_exists(employee_name):
-    
     if employee_name in session.current_session["all_employee"]:
         return True
     else:
