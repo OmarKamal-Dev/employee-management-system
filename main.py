@@ -17,7 +17,7 @@ def add_employee():
         country   = input("Enter Employee Country  : ")
 
         dp.save_employee({user_name : {
-            "Age" : age,
+            "Age"    : age,
             "Salary" : salary,
             "Country": country
         }})
@@ -50,14 +50,15 @@ def update_employee():
         salary  = input("Enter New Employee Salary : ")
         country = input("Enter New Employee Country: ")
 
-        session.current_session["all_employee"][newName] = session.current_session["all_employee"].pop(employee_name)
-        session.current_session["all_employee"][newName]["Age"] = age
-        session.current_session["all_employee"][newName]["Salary"] = salary
+        session.current_session["all_employee"][newName]            = session.current_session["all_employee"].pop(employee_name)
+        session.current_session["all_employee"][newName]["Age"]     = age
+        session.current_session["all_employee"][newName]["Salary"]  = salary
         session.current_session["all_employee"][newName]["Country"] = country
 
         dp.update_employees()
 
         print("Employee Updated Successfully.")
+        
         update_more = input("Do You Want To Update More?(Y or N) ")
 
     return
@@ -93,6 +94,7 @@ def delete_employee():
 
         else:
             input("Nothing Happend, Press Enter To Return...")
+            
             return
 
         delete_more = input("Do You Want To Update More?(Y or N) ")
@@ -133,6 +135,7 @@ def print_employee_List():
 def main_menu():
     while(True):
         utils.clear_screen()
+        
         utils.print_header("Main Menu Screen")
 
         indent = " " * 15
@@ -158,24 +161,22 @@ def main_menu():
             case 5: 
                 print_employee_List()
             case 6:
-                session.current_session["all_users"] = dict()
+                session.current_session["all_users"]    = dict()
                 session.current_session["all_employee"] = dict()
-                session.current_session["username"]  = None
+                session.current_session["username"]     = None
                 return
 
 def log_in():
     while(True):
         utils.clear_screen()
 
-        session.current_session["all_users"] = dp.load_users()
+        session.current_session["all_users"]    = dp.load_users()
         session.current_session["all_employee"] = dp.load_employees()
 
         utils.print_header("L O G   I N")
 
         userName = utils.check_user()
-
         password = False
-
         tries = 3
 
         while(not password and tries > 0):
@@ -187,6 +188,7 @@ def log_in():
         
         if password :
             session.current_session["username"] = userName
+            
             main_menu()
         else:
             return
