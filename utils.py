@@ -16,7 +16,6 @@ def read_int(msg) -> int:
         except ValueError:
             print("Invalid Number Please Try Again.")
     
-    return int(number)
     
 def read_int_in_range(fromNum, toNum) -> int :
     number = int(read_int(f"Please Enter Number Between {fromNum} and {toNum}: "))
